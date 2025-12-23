@@ -661,6 +661,22 @@
     grid-row: 3;
 }
 
+/* Links section specific positioning - Store, TikTok, Applications in one row */
+.links-content.links-section .link-card:nth-child(1) {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.links-content.links-section .link-card:nth-child(2) {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.links-content.links-section .link-card:nth-child(3) {
+    grid-column: 3;
+    grid-row: 1;
+}
+
 @media (max-width: 968px) {
     .links-content {
         grid-template-columns: repeat(2, 1fr);
