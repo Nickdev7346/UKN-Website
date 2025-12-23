@@ -1280,6 +1280,16 @@
         padding: 2rem;
     }
 
+    .footer-section:nth-child(2) ul {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+
+    .footer-section:nth-child(2) ul li {
+        grid-column: 1 !important;
+        grid-row: auto !important;
+    }
+
     .hero-buttons {
         flex-direction: column;
         align-items: center;
@@ -1334,6 +1344,7 @@
     
     .footer-section:nth-child(2) ul li {
         grid-column: 1 !important;
+        grid-row: auto !important;
     }
 }
 
