@@ -257,3 +257,30 @@ window.addEventListener('hashchange', () => {
     updateActiveNav();
 });
 
+// Trailer video autoplay when visible
+document.addEventListener('DOMContentLoaded', () => {
+    const trailerVideo = document.getElementById('trailer-video');
+    if (trailerVideo) {
+        const trailerSection = document.getElementById('trailer');
+        if (trailerSection) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Video is visible, add autoplay to the iframe src
+                        const currentSrc = trailerVideo.src;
+                        if (!currentSrc.includes('autoplay=1')) {
+                            trailerVideo.src = currentSrc + '&autoplay=1';
+                        }
+                        // Stop observing once video starts playing
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.5 // Trigger when 50% of the video is visible
+            });
+            
+            observer.observe(trailerSection);
+        }
+    }
+});
+
